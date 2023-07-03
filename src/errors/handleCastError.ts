@@ -1,10 +1,10 @@
+import { IGenericErrorMessages } from '../interfaces/IGenericErrorMessages';
 import mongoose from 'mongoose';
-import { IGenericErrorMessage } from '../interfaces/error';
 
-const handleCastError = (error: mongoose.Error.CastError) => {
-  const errors: IGenericErrorMessage[] = [
+const handleCastError = (error: mongoose.Error.CastError | Error) => {
+  const errors: IGenericErrorMessages[] = [
     {
-      path: error.path,
+      path: (error as mongoose.Error.CastError).path || '',
       message: 'Invalid Id',
     },
   ];

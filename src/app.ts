@@ -1,23 +1,25 @@
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
 import express, { Application, NextFunction, Request, Response } from 'express';
-import httpStatus from 'http-status';
-import globalErrorHandler from './app/middlewares/globalErrorHandler';
-import routes from './app/routes';
+import cors from 'cors';
 const app: Application = express();
 
-app.use(cors());
+import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 
+// --------- routes ---------
+import globalErrorHanndler from './middlewares/GlobalErrorHandler';
+import httpStatus from 'http-status';
+import router from './routes';
+
 //parser
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/v1', routes);
 
+// --------- api ---------
+app.use('/api/v1/', router);
 
-//global error handler
-app.use(globalErrorHandler);
+app.use(globalErrorHanndler);
 
 //handle not found
 app.use((req: Request, res: Response, next: NextFunction) => {
