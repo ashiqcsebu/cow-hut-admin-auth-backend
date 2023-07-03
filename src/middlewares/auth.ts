@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Secret } from 'jsonwebtoken';
@@ -18,6 +20,7 @@ const auth =(...requiredRoles: string[]) => async (req: Request, res: Response, 
 
       verifiedUser = jwtHelpers.verifyToken(token, config.jwt.secret as Secret);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (req as any).user = verifiedUser;
 
       if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {

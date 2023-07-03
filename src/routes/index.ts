@@ -6,8 +6,6 @@ import { orderRoutes } from '../modules/orders/order.route';
 import { AdminRoutes } from '../modules/admin/admin.route';
 const router = express.Router();
 
-
-
 const moduleRoutes = [
   {
     path: '/users',

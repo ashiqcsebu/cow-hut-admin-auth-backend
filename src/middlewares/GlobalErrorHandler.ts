@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-unused-expressions */
 import { NextFunction, Request, Response } from 'express';
 import config from '../config';
