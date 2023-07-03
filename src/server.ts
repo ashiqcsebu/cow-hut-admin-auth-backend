@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
-/* eslint-disable consistent-type-definitions */
 import mongoose from 'mongoose';
 import app from './app';
 import config from './config/index';
@@ -13,6 +14,7 @@ process.on('uncaughtException', err => {
 
 let server: Server;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 async function connectDB() {
   try {
     await mongoose.connect(config.database_url as string);
