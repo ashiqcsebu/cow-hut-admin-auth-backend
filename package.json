@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
